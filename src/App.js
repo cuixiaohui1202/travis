@@ -11,7 +11,7 @@ class App extends Component {
           <h1 className="App-title">欢迎来到React</h1>
         </header>
         <p className="App-intro">
-          我添加的这段字hhh
+          我添加的这段字kkk
         </p>
       </div>
     );
