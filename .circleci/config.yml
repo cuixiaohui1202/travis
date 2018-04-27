@@ -1,36 +1,13 @@
-language: node_js
-node_js:
-    - '6.10.3'
-
-# Travis-CI Caching
-cache:
-  directories:
-    - node_modules
-
-
-# S: Build Lifecycle
-install:
-  - npm install
-  #- npm install --registry=https://registry.npm.taobao.org
-
-before_script:
-
-script:
-  - npm run build
-
-#after_script:
-#  - cd ./dist
-#  - git init
-#  - git config user.name "${U_NAME}"
-#  - git config user.email "${U_EMAIL}"
-#  - git add .
-#  - git commit -m "Update tools"
-#  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
-# E: Build LifeCycle
-# 添加个注释
-branches:
-  only:
-    - develop
-env:
- global:
-   #- GH_REF: github.com/yimogit/metools.git
+version: 2
+jobs:
+   build-job:
+     docker:
+       - image: circleci/ruby:latest
+     steps:
+       - run: npm install
+       - run: npm run build
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build-job
