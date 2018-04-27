@@ -8,5 +8,5 @@ dependencies:
     - npm install
     - npm run build
 jobs:
-       - test
+       - master
 
