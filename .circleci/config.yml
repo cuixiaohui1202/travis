@@ -6,6 +6,9 @@ jobs:
     steps:
       - npm install
       - npm run build
+  filters:
+    branches:
+      only: develop
   test:
     docker:
       - image: circleci/golang:1.8.1
